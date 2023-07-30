@@ -1,0 +1,53 @@
+{
+    "name": "@lumieducation/h5p-rest-example-server",
+    "version": "9.2.1",
+    "private": true,
+    "description": "",
+    "main": "src/index.ts",
+    "scripts": {
+        "build": "npx tsc -P ./tsconfig.build.json",
+        "clean": "rm -rf h5p && rm -rf build && rm -rf coverage && rm -rf node_modules",
+        "prepare": "sh download-core.sh c79f97a16fd8c6fc0232c10d5bed5b94502ee9e9 c886fa6ded498bbe0148e9484f9b1534facc264e",
+        "start:watch": "npx ts-node-dev --deps --respawn src/index.ts",
+        "start": "npx ts-node -P ./tsconfig.build.json src/index.ts",
+        "start:shared-state:watch": "npx ts-node-dev --deps --respawn src/indexSharedState.ts",
+        "start:shared-state": "npx ts-node -P ./tsconfig.build.json src/indexSharedState.ts",
+        "devStart": "nodemon server.js"
+    },
+    "author": "S. Rettig",
+    "license": "MIT",
+    "dependencies": {
+        "@lumieducation/h5p-express": "^9.2.1",
+        "@lumieducation/h5p-mongos3": "^9.2.1",
+        "@lumieducation/h5p-server": "^9.2.1",
+        "@lumieducation/h5p-shared-state-server": "^9.2.1",
+        "body-parser": "1.20.2",
+        "cache-manager": "4.1.0",
+        "cache-manager-redis-store": "2.0.0",
+        "cors": "2.8.5",
+        "csurf": "1.11.0",
+        "express": "4.18.2",
+        "express-fileupload": "1.4.0",
+        "express-session": "1.17.3",
+        "fs-extra": "11.1.1",
+        "i18next": "22.5.1",
+        "i18next-fs-backend": "2.1.5",
+        "i18next-http-middleware": "3.3.2",
+        "mongoose": "^7.4.1",
+        "passport": "0.6.0",
+        "passport-local": "1.0.0",
+        "tmp-promise": "3.0.3"
+    },
+    "devDependencies": {
+        "@types/cors": "2.8.13",
+        "@types/csurf": "1.11.2",
+        "@types/express": "4.17.17",
+        "@types/express-session": "1.17.7",
+        "@types/passport": "1.0.12",
+        "@types/passport-local": "1.0.35",
+        "dotenv": "^16.3.1",
+        "nodemon": "^3.0.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.1.6"
+    }
+}
